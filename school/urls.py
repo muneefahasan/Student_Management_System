@@ -1,11 +1,12 @@
-# C:\Users\USER\Desktop\sms\Home\school\urls.py
+from django.contrib import admin
+from django.urls import path,include
+from . import views
 
-from django.urls import path
-from . import views # Import the view functions from the same directory
-
-# The urlpatterns list is essential for the server to run correctly.
 urlpatterns = [
-    # When a request comes to the root of the app ('/'), call the 'index' function 
-    # defined in school/views.py.
-    path('', views.index, name='index'), 
+   path('',views.index, name="index"),
+   path('dashboard/', views.dashboard, name='dashboard'), 
+   path('notification/mark-as-read/', views.mark_notification_as_read, name='mark_notification_as_read' ),
+   path('notification/clear-all', views.clear_all_notification, name= "clear_all_notification")
+
+
 ]
